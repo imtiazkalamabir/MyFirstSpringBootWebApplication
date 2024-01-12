@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("name")
 public class LoginFormController {
 
-    private AuthenticationService authenticationService;
+    /*private AuthenticationService authenticationService;
 
 
     //@Autowired - not necessary for constructor injection
     public LoginFormController(AuthenticationService authenticationService) {
         super();
         this.authenticationService = authenticationService;
-    }
+    }*/
 
-    @RequestMapping(value = "loginform", method = RequestMethod.GET)
+    /*@RequestMapping(value = "loginform", method = RequestMethod.GET)
     public String gotoLoginPage() {
         return "login_form";
-    }
+    }*/
 
-    @RequestMapping(value = "loginform", method = RequestMethod.POST)
+    /*@RequestMapping(value = "loginform", method = RequestMethod.POST)
     public String gotoWelcomePage(@RequestParam String name, @RequestParam String password, ModelMap model) {
 
         // Authentication
@@ -44,6 +44,5 @@ public class LoginFormController {
         model.put("errorMessage", "Invalid Credentials! Please try again.");
         return "login_form";
 
-    }
-
+    }*/
 }

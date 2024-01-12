@@ -1,20 +1,46 @@
 package com.in28mintues.springboot.myfirstwebapp.todo;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
-//Database (MySQL)
+// Database (MySQL)
 // Static List of todos => Database (H2, MySQL)
 
+// JPA
+// Bean -> Database
+
+// Entity allows to map a bean to a table.
+// Spring boot auto config automatically start creating tables in H2 if it finds any entity
+// here the To-do is mapped into TodoABC using @Entity(name = "TodoABC")
+// but by default it will use the class name itself as Table name
+// @Entity(name = "TodoABC")
+@Entity
 public class Todo {
 
+    // @Id is used to define Primary Key
+    // @GeneratedValue is used to generate id in a sequence
+    @Id
+    @GeneratedValue
     private int id;
+
+    // Mapping username to a column "name"
+    // @Column(name="name")
     private String username;
+
+    // @Size is a validation annotation (Adding validation to Beans)
     @Size(min = 10, message = "Enter at least 10 character")
     private String description;
     private LocalDate targetDate;
     private boolean done;
+
+    public Todo() {
+
+    }
 
     public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
         super();
